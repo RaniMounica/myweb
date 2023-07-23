@@ -11,7 +11,7 @@ try{
 		sh 'mvn clean package'
 	}
 	stage('Deploy to Dev'){
-		sh 'mv target/*.war target/myweb.war'
+		sh 'mv target/*.war target/myweb-8.2.0.war'
 		sshagent(['tomcat-dev']) {
 			sh 'ssh ec2-user@172.31.17.196 rm -rf /opt/tomcat8/webapps/myweb*'
 		    sh 'scp target/myweb.war ec2-user@172.31.17.196:/opt/tomcat8/webapps/'
