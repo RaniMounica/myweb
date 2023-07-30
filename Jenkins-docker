@@ -42,7 +42,7 @@ pipeline{
             steps{
                  sh 'docker build -t rhemadocker/spring-boot-mongo .'
                  sh 'docker build -t tomcat:${BUILD_NUMBER} .'
-                 sh 'docker run -itd --name rhema1 -p 5050:8080 tomcat:${BUILD_NUMBER}'
+                 sh 'docker run -itd --name rhema.hey -p 100:8080 tomcat:${BUILD_NUMBER}'
              }
          }
         stage('Push Docker Image'){
